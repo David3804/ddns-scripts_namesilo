@@ -159,13 +159,14 @@ update_namesilo() {
         retcode=$(printf "%s\n" "$RESPONSE" | _egrep_o "<code>300")
         if [ "$retcode" ]; then
             write_log 7 "成功更新记录"
-            # 一旦更新成功，则需要等待至少 15 分钟来完成后续工作
-            if [ $CHECK_SECONDS -lt 900 ]; then
-                local sleep_sec=$((900 - $CHECK_SECONDS))
-                write_log 6 "需要等待至少 15 分钟来完成后续工作，但 check_interval 小于 15 分钟"
-                write_log 7 "额外等待 $sleep_sec 秒..."
-                sleep "$sleep_sec"
-            fi
+#             # 一旦更新成功，则需要等待至少 15 分钟来完成后续工作
+#             if [ $CHECK_SECONDS -lt 900 ]; then
+#                 local sleep_sec=$((900 - $CHECK_SECONDS))
+#                 write_log 6 "需要等待至少 15 分钟来完成后续工作，但 check_interval 小于 15 分钟"
+#                 write_log 7 "额外等待 $sleep_sec 秒..."
+#                 sleep "$sleep_sec"
+#             fi
+            # 改成降低ddns脚本检查解析频率
         else
             write_log 3 "更新记录失败"
             write_log 7 "NameSilo 响应: $RESPONSE"
