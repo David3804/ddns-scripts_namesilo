@@ -1,3 +1,5 @@
+# Fork from https://github.com/lin010151/ddns-scripts_namesilo
+
 # OpenWrt/LEDE Dynamic DNS (DDNS) Client scripts extension for NameSilo
 
 A DDNS script to send updates to NameSilo for OpenWrt/LEDE.
